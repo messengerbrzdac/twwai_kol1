@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technologie webowe w aplikacjach Internetu</title>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<section id="wykres">
+    <div>
+        Populacja na kontynentach
+        <canvas id="chart"></canvas>
+    </div>
+
+</section>
+
+
+<script>
+    // pobranie danych z serwera
+    const chartData = ''; //tutaj nalezy przekazać dane oraz wykonać odpowiednią operację
+
+
+    // pobranie referencji do miejsa wyświetlenia
+    const ctx = document.querySelector("#chart").getContext('2d');
+
+    // sparsowanie danych otrzymanych z serwera w miejscu właściwości data
+    const configChart2 = {
+        type: 'line',
+        data: chartData,
+        options: {
+            scales: {
+                xAxes: [{
+                    type: 'time',
+                    distribution: 'linear',
+                }],
+                title: {
+                    display: false,
+                }
+            }
+        }
+    };
+
+    // zbudowanie wykresu
+    new Chart(ctx, configChart2);
+</script>
+
+
+</body>
+</html>
+
